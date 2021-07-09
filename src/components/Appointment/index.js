@@ -5,11 +5,13 @@ import Show from "components/Appointment/Show";
 import Empty from "components/Appointment/Empty";
 import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
+import Status from "./Status";
 // import classnames from "classnames";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
+const SAVING = "SAVING"
 
 export default function Appointment(props) {
   let returnElement;
@@ -23,9 +25,10 @@ export default function Appointment(props) {
       student: name,
       interviewer,
     };
-    console.log('interviewer', interviewer)
-    props.bookInterview(props.id, interview)
-    transition(SHOW);
+    transition(SAVING)
+    props.bookInterview(props.id, interview).then((response) => {
+      transition(SHOW);
+    });
   }
 
   if (mode === SHOW) {
@@ -44,6 +47,10 @@ export default function Appointment(props) {
         onSave={save}
       ></Form>
     );
+  }
+
+  if (mode === SAVING){
+    returnElement = <Status message = {"Saving..."}></Status>
   }
   return (
     <article className="appointment">

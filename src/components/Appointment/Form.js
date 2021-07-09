@@ -10,7 +10,6 @@ export default function Form(props) {
   function reset() {
     setName("");
     setInterviewer(null);
-    console.log("reset called");
   }
 
   function cancel(props) {
@@ -18,7 +17,6 @@ export default function Form(props) {
     return props.cancel;
   }
 
-  console.log("interviewer1", interviewer)
 
   return (
     <main className="appointment__card appointment__card--create">

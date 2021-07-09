@@ -35,6 +35,9 @@ export default function Application(props) {
       ...state,
       appointments,
     });
+
+    return axios.put(`/api/appointments/${id}`, {interview})
+
   }
 
   useEffect(() => {
@@ -56,6 +59,7 @@ export default function Application(props) {
     const interview = getInterview(state, appointment.interview);
     return (
       <Appointment
+        key = {appointment.id}
         time={appointment.time}
         id={appointment.id}
         interview={interview}
