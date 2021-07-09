@@ -10,12 +10,15 @@ export default function Form(props) {
   function reset() {
     setName("");
     setInterviewer(null);
+    console.log("reset called");
   }
 
   function cancel(props) {
-    reset()
-    return props.cancel
+    reset();
+    return props.cancel;
   }
+
+  console.log("interviewer1", interviewer)
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -34,15 +37,15 @@ export default function Form(props) {
           interviewers={props.interviewers}
           value={interviewer}
           onChange={(event) => setInterviewer(event)}
-          onSubmit={event => event.preventDefault()}
+          onSubmit={(event) => event.preventDefault()}
         />
       </section>
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={cancel}>
+          <Button danger onClick={props.onCancel}>
             Cancel
           </Button>
-          <Button confirm onClick={props.onSave}>
+          <Button confirm onClick={()=>props.onSave(name, interviewer)}>
             Save
           </Button>
         </section>
