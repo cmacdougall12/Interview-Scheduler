@@ -31,13 +31,25 @@ export default function Application(props) {
       [id]: appointment,
     };
 
-    setState({
-      ...state,
-      appointments,
+    return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
+      setState({ ...state, appointments });
     });
+  }
 
-    return axios.put(`/api/appointments/${id}`, {interview})
+  function deleteInterview(id) {
+    const removeInterviewFromAppointment = {
+      ...state.appointments[id],
+      interview: null,
+    };
 
+    const appointments = {
+      ...state.appointments,
+      [id]: removeInterviewFromAppointment,
+    };
+
+    return axios.delete(`/api/appointments/${id}`).then(() => {
+      setState({ ...state, appointments });
+    });
   }
 
   useEffect(() => {
@@ -59,12 +71,13 @@ export default function Application(props) {
     const interview = getInterview(state, appointment.interview);
     return (
       <Appointment
-        key = {appointment.id}
+        key={appointment.id}
         time={appointment.time}
         id={appointment.id}
         interview={interview}
         interviewers={interviewers}
         bookInterview={bookInterview}
+        deleteInterview={deleteInterview}
       />
     );
   });
