@@ -21,8 +21,6 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 export default function Appointment(props) {
-  let returnElement;
-
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -54,12 +52,12 @@ export default function Appointment(props) {
   function confirmDelete() {
     transition(CONFIRM);
   }
-
-  console.log("form props", props);
   return (
     <article className="appointment">
       <Header time={props.time} key={props.id}></Header>
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)}></Empty>}
+      {mode === SAVING && <Status message={"Saving..."}></Status>}
+      {mode === DELETING && <Status message={"Deleting..."}></Status>}
       {mode === SHOW && (
         <Show
           time={props.time}
@@ -68,8 +66,7 @@ export default function Appointment(props) {
           onEdit={() => transition(EDIT)}
         ></Show>
       )}
-      {mode === SAVING && <Status message={"Saving..."}></Status>}
-      {mode === DELETING && <Status message={"Deleting..."}></Status>}
+
       {mode === CONFIRM && (
         <Confirm
           onConfirm={saveDelete}
