@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData(props) {
@@ -24,7 +24,12 @@ export default function useApplicationData(props) {
 
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
       setState({ ...state, appointments });
-      console.log(state);
+      axios.get("api/days").then((response) => {
+        setState((prev) => ({
+          ...prev,
+          days: response.data,
+        }));
+      });
     });
   }
 
@@ -41,6 +46,12 @@ export default function useApplicationData(props) {
 
     return axios.delete(`/api/appointments/${id}`).then(() => {
       setState({ ...state, appointments });
+      axios.get("api/days").then((response) => {
+        setState((prev) => ({
+          ...prev,
+          days: response.data,
+        }));
+      });
     });
   }
 
