@@ -71,7 +71,7 @@ export default function Appointment(props) {
         <Confirm
           onConfirm={saveDelete}
           onCancel={() => transition(SHOW, true)}
-          message={"Are you sure you want to delete this appointment?"}
+          message={"Are you sure you would like to delete?"}
         ></Confirm>
       )}
       {mode === CREATE && (
