@@ -53,7 +53,7 @@ export default function Appointment(props) {
     transition(CONFIRM);
   }
   return (
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment">
       <Header time={props.time} key={props.id}></Header>
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)}></Empty>}
       {mode === SAVING && <Status message={"Saving..."}></Status>}

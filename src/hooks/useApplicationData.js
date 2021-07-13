@@ -24,7 +24,7 @@ export default function useApplicationData(props) {
 
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
       setState({ ...state, appointments });
-      axios.get("api/days").then((response) => {
+      axios.get("/api/days").then((response) => {
         setState((prev) => ({
           ...prev,
           days: response.data,
