@@ -6,7 +6,6 @@ import Confirm from "components/Appointment/Confirm";
 import Empty from "components/Appointment/Empty";
 import Error from "components/Appointment/Error";
 import Header from "components/Appointment/Header";
-import index from "components/Appointment/index";
 import Status from "components/Appointment/Status";
 
 afterEach(cleanup);
@@ -31,9 +30,6 @@ it("Header renders without crashing", () => {
   render(<Header />);
 });
 
-// it("Show renders without crashing", () => {
-//   render(<Show student = {"cam"}/>);
-// });
 
 it("Status renders without crashing", () => {
   render(<Status />);
