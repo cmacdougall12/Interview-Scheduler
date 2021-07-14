@@ -9,21 +9,22 @@ Application allows users to:
 - Cancel Interviews: If the existing appointment is no longer required.
 
 ## Final Product
-If you don't have an account. Click the "Create Account" button in the Navigation Bar
 
-!["If you don't have an account. Click the "Create Account" button in the Navigation Bar"](https://raw.githubusercontent.com/cmacdougall12/tinyapp/7b170d4230c07ad81f7e3d6706c73105ce9215d7/docs/register.png)
+- To view different days for the week. Use the navigation bar on the left hand side.
+- Once you have selected the desired day. Select an open appointment by click the add button.
 
-If you already have an account. Click login and fill out your account information
+!["Initial View"](https://github.com/cmacdougall12/Interview-Scheduler/blob/master/screenshots/Screenshot%20from%202021-07-14%2015-38-37.png?raw=true)
 
-!["If you already have an account. Click login and fill out your account information"](https://raw.githubusercontent.com/cmacdougall12/tinyapp/7b170d4230c07ad81f7e3d6706c73105ce9215d7/docs/login.png)
 
-To create a short URL. Navigate to the "Create New URL" and enter a URL that you wanted shortened. Note: http:// needs to be included in order for the link to work
+- Fill out the required information in the form.
+- Click save to add your appointment!
 
-!["To create a short URL. Navigate to the "Create New URL" and enter a URL that you wanted shortened. Note: http:// needs to be included in order for the link to work"](https://raw.githubusercontent.com/cmacdougall12/tinyapp/7b170d4230c07ad81f7e3d6706c73105ce9215d7/docs/createShortURL.png)
+!["Fill out form"](https://github.com/cmacdougall12/Interview-Scheduler/blob/master/screenshots/Screenshot%20from%202021-07-14%2015-42-11.png?raw=true)
 
-When returning to "My URLs" there will be a new short URL to the appropriate address. Once you create the link you will be able to edit, delete, or follow the short URL you just created
 
-!["When returning to "My URLs" there will be a new short URL to the appropriate address. Once you create the link you will be able to edit, delete, or follow the short URL you just created"](https://raw.githubusercontent.com/cmacdougall12/tinyapp/7b170d4230c07ad81f7e3d6706c73105ce9215d7/docs/urls.png)
+User also has option to EDIT or DELETE existing appointments.
+
+!["Booked Appointment"](https://github.com/cmacdougall12/Interview-Scheduler/blob/master/screenshots/Screenshot%20from%202021-07-14%2015-43-17.png?raw=true)
 
 
 ## Setup
