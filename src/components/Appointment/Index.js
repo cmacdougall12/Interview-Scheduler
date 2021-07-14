@@ -8,7 +8,6 @@ import Error from "components/Appointment//Error";
 import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
 import Status from "./Status";
-// import classnames from "classnames";
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
