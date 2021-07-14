@@ -65,7 +65,7 @@ describe("Form", () => {
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
 
     expect(onSave).toHaveBeenCalledTimes(1);
-    expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", 1);
+    expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", null);
   });
 
   // 5 - cancel function works properly
