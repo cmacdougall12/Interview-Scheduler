@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData(props) {
+  // STATE 
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -11,6 +12,7 @@ export default function useApplicationData(props) {
 
   const setDay = (day) => setState({ ...state, day });
 
+  // UPDATE SPOTS
   function updateSpots(dayName, days, appointments) {
     const index = state.days.findIndex((ele) => ele.name === state.day);
 
@@ -32,6 +34,7 @@ export default function useApplicationData(props) {
     return newDays;
   }
 
+  // BOOK INTERVIEW
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -49,6 +52,7 @@ export default function useApplicationData(props) {
     });
   }
 
+  //DELETE INTERVIEW
   function deleteInterview(id) {
     const removeInterviewFromAppointment = {
       ...state.appointments[id],
@@ -67,6 +71,7 @@ export default function useApplicationData(props) {
     });
   }
 
+  //RETRIEVE APPLICATION DATA
   useEffect(() => {
     Promise.all([
       Promise.resolve(axios.get("/api/days")),

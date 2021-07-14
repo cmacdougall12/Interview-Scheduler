@@ -6,13 +6,11 @@ import {
   cleanup,
   waitForElement,
   fireEvent,
-  prettyDOM,
   getByText,
   getAllByTestId,
   getByPlaceholderText,
   getByAltText,
   queryByText,
-  waitForElementToBeRemoved,
   queryByAltText,
 } from "@testing-library/react";
 
@@ -24,11 +22,8 @@ describe("Application", () => {
   // 1. new day selected test
   it("changes the schedule when a new day is selected", async () => {
     const { getByText } = render(<Application />);
-
     await waitForElement(() => getByText("Monday"));
-
     fireEvent.click(getByText("Tuesday"));
-
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
 
@@ -42,11 +37,9 @@ describe("Application", () => {
     const appointment = appointments[0];
 
     fireEvent.click(getByAltText(appointment, "Add"));
-
     fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
       target: { value: "Lydia Miller-Jones" },
     });
-
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     fireEvent.click(getByText(appointment, "Save"));
 
@@ -60,6 +53,7 @@ describe("Application", () => {
 
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
+
   // 3. Delete existing appointment test
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
     const { container } = render(<Application />);
@@ -140,7 +134,9 @@ describe("Application", () => {
 
     expect(getByText(appointment, "Saving...")).toBeInTheDocument();
 
-    await waitForElement(() => getByText(appointment, "Error encountered when saving. Please try again"));
+    await waitForElement(() =>
+      getByText(appointment, "Error encountered when saving. Please try again")
+    );
   });
 
   // 6. Delete Error Test
@@ -165,6 +161,11 @@ describe("Application", () => {
 
     expect(getByText(appointment, "Deleting...")).toBeInTheDocument();
 
-    await waitForElement(() => getByText(appointment, "Error encountered when deleting. Please try again"));
+    await waitForElement(() =>
+      getByText(
+        appointment,
+        "Error encountered when deleting. Please try again"
+      )
+    );
   });
 });

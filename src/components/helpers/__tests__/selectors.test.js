@@ -1,5 +1,7 @@
+// TEST SELECTOR FUNCTIONS TO ENSURE THEY WORK AS INTENDED 
 import { getAppointmentsForDay, getInterview, getInterviewersForDay} from "../selectors";
 
+// ## fake test data to test selector functions
 const state = {
   days: [
     {
@@ -44,6 +46,7 @@ const state = {
   }
 };
 
+// 1 - getAppointmentsForDay 
 test("getAppointmentsForDay returns an array", () => {
   const result = getAppointmentsForDay(state, "Monday");
   expect(Array.isArray(result)).toBe(true);
@@ -72,7 +75,7 @@ test("getAppointmentsForDay returns an empty array when the day is not found", (
 
 
 
-
+// 2 - getInterview
 test("getInterview returns an object with the interviewer data", () => {
   const result = getInterview(state, state.appointments["3"].interview);
   expect(result).toEqual(

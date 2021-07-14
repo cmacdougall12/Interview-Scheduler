@@ -10,6 +10,7 @@ import Status from "components/Appointment/Status";
 
 afterEach(cleanup);
 
+//Components render without crashing
 it("Confirm renders without crashing", () => {
   render(<Confirm />);
 });

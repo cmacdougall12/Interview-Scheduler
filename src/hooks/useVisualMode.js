@@ -1,5 +1,6 @@
 const { useState } = require("react");
 
+//useVisualMode - changes mode based on user actions
 export default function useVisualMode(initial) {
   const [history, setHistory] = useState([initial]);
 

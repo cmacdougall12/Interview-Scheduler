@@ -1,3 +1,4 @@
+// 1 - getAppointmentsForDay - returns appointments array for a given day based on state
 export function getAppointmentsForDay(state, day) {
   if (state.days.length === 0) {
     return [];
@@ -18,7 +19,7 @@ export function getAppointmentsForDay(state, day) {
   });
   return filterAppointment;
 }
-
+// 2 - getInterview - return interview info based on interviewer ID which is int he interview object
 export function getInterview(state, interview) {
   if (!interview) {
     return null;
@@ -30,6 +31,7 @@ export function getInterview(state, interview) {
   return interviewInfo;
 }
 
+// 3 - getInterviewersForDay - returns Interviewers available for a given day based on state. 
 export function getInterviewersForDay(state, day) {
   if (state.days.length === 0) {
     return [];

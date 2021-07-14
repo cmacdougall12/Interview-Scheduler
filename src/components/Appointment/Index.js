@@ -9,6 +9,7 @@ import Form from "./Form";
 import useVisualMode from "hooks/useVisualMode";
 import Status from "./Status";
 
+//create modes
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
@@ -19,11 +20,13 @@ const EDIT = "EDIT";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
+//Appointment component transistions to required modes depending on user input
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
-
+  
+  //save - used to save new appointment or existing
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -38,6 +41,7 @@ export default function Appointment(props) {
       .catch((error) => transition(ERROR_SAVE, true));
   }
 
+  //delete - used to delete existing appointment
   function saveDelete() {
     transition(DELETING);
     props
@@ -48,9 +52,12 @@ export default function Appointment(props) {
       .catch((error) => transition(ERROR_DELETE, true));
   }
 
+  //confirmDelete - asks user to confirm deletion
   function confirmDelete() {
     transition(CONFIRM);
   }
+
+  //return element based on MODE
   return (
     <article className="appointment" data-testid="appointment">
       <Header time={props.time} key={props.id}></Header>
